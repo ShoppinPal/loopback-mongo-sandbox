@@ -1,0 +1,6 @@
+{
+  "mongodb": {
+    "url": "mongodb://mongo:27017/loopback-mongo-sandbox",
+    "connector": "loopback-connector-mongodb"
+  }
+}
