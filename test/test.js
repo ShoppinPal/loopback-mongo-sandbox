@@ -1,28 +1,30 @@
+/**
+ * This code was copy/pasted from:
+ *  > https://github.com/beeman/loopback-ds-mixin-skeleton/blob/7bf0d3074df63ad98348a4e30652bb93f8f458af/test.js#L48
+ * and then edited to work with mongodb instead of memory connector
+ */
+
 /* jshint mocha: true */
 
-var debug = require('debug')('loopback-ds-mixin-skeleton');
-var utils = require('loopback-datasource-juggler/lib/utils');
+// HACK: being able to enable/disable debug programmatically
+//       https://github.com/visionmedia/debug/issues/275#issuecomment-219997340
+require('debug').enable('loopback:connector:*'); //enable namespace
+var debug = require('debug')('loopback:connector:*'); //reload debug
 
 var loopback = require('loopback');
 var lt = require('loopback-testing');
 
 var chai = require('chai');
 var expect = chai.expect;
-var sinon = require('sinon');
-chai.use(require('sinon-chai'));
-require('mocha-sinon');
 
-// Create a new loopback app.
-var app = loopback();
+// Reuse the loopback app.
+var app = require('../server/server.js'); //path to app.js or server.js
 
 // Set up promise support for loopback in non-ES6 runtime environment.
-global.Promise = require('bluebird');
-
-// import our Changed mixin.
-require('./')(app);
+//global.Promise = require('bluebird');
 
 // Connect to db
-var dbConnector = loopback.memory();
+var dbConnector = app.datasources.mongodb;
 
 // Main test
 describe('loopback datasource property', function () {
