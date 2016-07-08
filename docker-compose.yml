@@ -5,6 +5,9 @@ services:
       context: ./
     ports:
       - "3000:3000"
+    volumes:
+      # User-relative path
+      - ~/dev/loopback-mongo-sandbox:/apps/loopback-mongo-sandbox
     depends_on:
      - mongo
   mongo:
