@@ -11,14 +11,18 @@
 require('debug').enable('loopback:connector:*'); //enable namespace
 var debug = require('debug')('loopback:connector:*'); //reload debug
 
-var loopback = require('loopback');
 var lt = require('loopback-testing');
 
 var chai = require('chai');
 var expect = chai.expect;
 
-// Reuse the loopback app.
+// Reuse the existing loopback app.
 var app = require('../server/server.js'); //path to app.js or server.js
+var loopback = app.loopback;
+
+// Create a new loopback app.
+//var app = loopback();
+//var loopback = require('loopback');
 
 // Set up promise support for loopback in non-ES6 runtime environment.
 //global.Promise = require('bluebird');
@@ -26,11 +30,15 @@ var app = require('../server/server.js'); //path to app.js or server.js
 // Connect to db
 var dbConnector = app.datasources.mongodb;
 
-// Main test
-describe('loopback datasource property', function () {
+describe('this is test group 1', function () {
 
+  // Step 1 - initialize `loopback-testing` with the application as an argument
   lt.beforeEach.withApp(app);
 
+  // Step 2 - create a model and attach it to the application on the fly
+  //          NOTE: some tasks are repetitive and don't seem to take effect
+  //                like `item` doesn't show up in the explorer ... but that maybe because
+  //                this test uses its own app and not the app instance run by the container bootup!!
   beforeEach(function (done) {
 
     // Create a new model and attach the mixin
@@ -54,8 +62,14 @@ describe('loopback datasource property', function () {
       .buildTo(this, done);
   });
 
+  // Step 3 - cleanup the DB before each test
+  lt.beforeEach.cleanDatasource('mongodb');
 
-  it('This is a test.', function (done) {
+  it('this is test one', function (done) {
+    // Here, the item is NOT being read from DB again,
+    // it was stored in memory after creation in DB
+    // and is being read from memory now
+    // Q: how do we read from the DB again instead of memory?
     var item = this.item;
     expect(item.name).to.equal('Item name');
     done();
