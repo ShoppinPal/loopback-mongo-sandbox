@@ -1,5 +1,5 @@
 # you can get details about the following image from https://hub.docker.com/_/node/
-FROM node:0.10.36
+FROM node:6.10.1
 
 RUN apt-get -y update
 RUN apt-get install -y tree
