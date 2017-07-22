@@ -5,6 +5,14 @@ services:
     volumes:
       - .:/builder/
     working_dir: /builder/
+  worker:
+    #restart: always
+    image: node:6.10.1
+    volumes:
+      - ./worker/simpleWorker.js:/apps/simpleWorker.js
+    working_dir: /apps
+    command: node /apps/simpleWorker.js
+    env_file: worker.env
   loopback-mongo-sandbox:
     build:
       context: ./
