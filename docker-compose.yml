@@ -1,13 +1,17 @@
 version: '2'
 services:
+  builder:
+    image: node:6.10.1
+    volumes:
+      - .:/builder/
+    working_dir: /builder/
   loopback-mongo-sandbox:
     build:
       context: ./
     ports:
       - "3000:3000"
     volumes:
-      # User-relative path
-      - ~/dev/loopback-mongo-sandbox:/apps/loopback-mongo-sandbox
+      - .:/apps/loopback-mongo-sandbox
     depends_on:
      - mongo
   mongo:

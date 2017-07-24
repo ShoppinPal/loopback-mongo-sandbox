@@ -19,6 +19,6 @@
 cd ~/dev
 git clone https://github.com/ShoppinPal/loopback-mongo-sandbox.git
 cd ~/dev/loopback-mongo-sandbox
-npm install
+docker-compose run builder npm install
 docker-compose up
 ```
