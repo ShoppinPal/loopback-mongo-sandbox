@@ -10,6 +10,7 @@
       "loopback/common/mixins",
       "loopback/server/mixins",
       "../common/mixins",
+      "../node_modules/loopback-reset-password-mixin",
       "./mixins"
     ]
   },
@@ -34,5 +35,9 @@
   "Role": {
     "dataSource": "mongodb",
     "public": false
+  }
+  , "Employee": {
+    "dataSource": "mongodb",
+    "public": true
   }
 }

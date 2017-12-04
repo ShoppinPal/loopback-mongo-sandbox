@@ -1,3 +1,10 @@
+### Features
+* With this starter project, you can jump straight to writing your business logic.
+* Mongo is setup and configured to work with loopback already.
+* With docker, deploying is as simple as running `docker-compose up`
+* Reset password mixin is already baked-in.
+    * You only provide [minimal configuration](tutorials/add-reset-password.md) to get it going.
+
 ### FAQ
 * Why was this project created?
     * To provide a quick way to experiment with loopback and mongo together.
