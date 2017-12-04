@@ -135,12 +135,12 @@
     ```
 1. After the changes it looked like:
 
-  ```
-  "parse": {
-    "body-parser#json": {},
-    "body-parser#urlencoded": {"params": { "extended": true }}
-  },
-  ```
+    ```
+    "parse": {
+      "body-parser#json": {},
+      "body-parser#urlencoded": {"params": { "extended": true }}
+    },
+    ```
 1. Added `"protocol": "http",` to the `server/config.json` file
 1. You will need to setup your SES on AWS for yourself.
 1. Then setup the SES varibles in the environment
