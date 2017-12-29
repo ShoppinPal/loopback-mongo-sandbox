@@ -27,3 +27,8 @@ services:
     image: mongo
     ports:
       - "3001:27017"
+  worker-framework:
+    build: https://github.com/ShoppinPal/node-worker.git
+    env_file: .env
+    depends_on:
+     - mongo
