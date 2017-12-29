@@ -135,3 +135,4 @@
     * the background: `docker-compose up -d`
     * or the foreground: `docker-compose up`
 1. Open application in your browser with url `http://<remote_IP_or_FQDN>:3000/explorer`
+    * If your remote machine hasa firewall, then you may need to configure it to allow traffic on port 3000.
