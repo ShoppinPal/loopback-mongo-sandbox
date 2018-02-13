@@ -1,0 +1,52 @@
+{
+  "name": "OrgModel",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "default": "none"
+    },
+    "email": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "users": {
+      "type": "hasMany",
+      "model": "UserModel",
+      "foreignKey": "orgModelId"
+    }
+  },
+  "acls": [
+    {
+      "description": "DENY any and all requests which we do not explicitly ALLOW",
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "description": "Admins can CRUD users within their own org",
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "orgAdmin",
+      "permission": "ALLOW",
+      "property": [
+        "__count__users",
+        "__create__users",
+        "__delete__users",
+        "__destroyById__users",
+        "__findById__users",
+        "__get__users",
+        "__updateById__users"
+      ]
+    }
+  ],
+  "methods": {}
+}
