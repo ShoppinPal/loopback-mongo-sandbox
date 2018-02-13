@@ -1,0 +1,38 @@
+{
+  "name": "UserModel",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+  },
+  "properties": {
+  },
+  "validations": [],
+  "relations": {
+    "org": {
+      "type": "belongsTo",
+      "model": "OrgModel",
+      "foreignKey": "orgModelId"
+    }
+  },
+  "acls": [
+    {
+      "description": "DENY any and all requests which we do not explicitly ALLOW",
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "description": "Anyone can signup",
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "signup"
+    }
+  ],
+  "methods": {}
+}

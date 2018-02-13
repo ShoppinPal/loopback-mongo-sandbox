@@ -15,7 +15,8 @@
     ]
   },
   "User": {
-    "dataSource": "mongodb"
+    "dataSource": "mongodb",
+    "public": false
   },
   "AccessToken": {
     "dataSource": "mongodb",
@@ -36,7 +37,11 @@
     "dataSource": "mongodb",
     "public": false
   }
-  , "Employee": {
+  , "OrgModel": {
+    "dataSource": "mongodb",
+    "public": true
+  }
+  , "UserModel": {
     "dataSource": "mongodb",
     "public": true
   }
