@@ -7,6 +7,7 @@
   },
   "scripts": {
     "test": "mocha"
+    ,"mocha": "mocha"
     ,"lb": "lb"
     ,"lint": "eslint ."
     ,"posttest": "npm run lint && nsp check"
@@ -36,5 +37,6 @@
     ,"eslint": "^3.17.1"
     ,"eslint-config-loopback": "^8.0.0"
     ,"nsp": "^2.1.0"
+    ,"supertest": "3.0.0"
   }
 }
