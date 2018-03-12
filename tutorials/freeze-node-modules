@@ -1,0 +1,18 @@
+# Motivation
+
+1. Just maintaining the node_modules versions in `package.json` is not enough because sometimes npm downloads the latest minor versions
+from the npm registry when npm install is run and it is not safe because some of updates in libs might break the application and we will never know
+what broke the application. So it becomes necessary to freeze the node_modules version.
+
+# How to freeze node_modules versions
+
+One of the way to freeze node_modules version is using `npm shrinkwrap`
+
+Assuming that you have all node_modules installed on your system within `node_modules/` directory.
+
+run the command
+```
+npm shrinkwrap
+```
+
+This file will generate file named `npm-shrinkwrap.json`. just check in this file and you are done!!
