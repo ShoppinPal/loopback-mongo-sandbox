@@ -8,6 +8,8 @@ services:
   worker:
     #restart: always
     image: node:6.10.1
+    networks:
+      - nginxproxy
     volumes:
       - ./worker/simpleWorker.js:/apps/simpleWorker.js
     working_dir: /apps
