@@ -26,4 +26,4 @@ services:
   mongo:
     image: mongo
     ports:
-      - "3001:27017"
+      - "80:27017"
