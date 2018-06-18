@@ -41,3 +41,22 @@ app.start = function() {
 if (require.main === module) {
   app.start();
 }
+
+app.get('remoting').errorHandler = {
+  handler: function(error, req, res, next) {
+    console.log('i exist');
+    /* Other options for namespace?
+     > 'strong-remoting:rest-adapter'
+     > 'server:middleware:errorHandler' */
+    var log = require('debug')('server:rest:errorHandler');
+    if (error instanceof Error) {
+      log('Error in %s %s: errorName=%s errorMessage=%s \n errorStack=%s',
+        req.method, req.url, error.name, error.message, error.stack);
+    }
+    else {
+      log(req.method, req.originalUrl, res.statusCode, error);
+    }
+    next(); /* let the default error handler (RestAdapter.errorHandler) run next */
+  },
+  disableStackTrace: true
+};

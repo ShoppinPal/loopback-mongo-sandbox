@@ -6,21 +6,25 @@
     "test": "mocha"
   },
   "dependencies": {
+    "bluebird": "3.5.1",
     "compression": "^1.0.3",
     "errorhandler": "^1.1.1",
-    "loopback": "^2.5.0",
-    "loopback-boot": "^2.2.0",
+    "joi": "9.1.1",
+    "loopback": "2.37.1",
+    "loopback-boot": "2.18.1",
     "loopback-connector-mongodb": "1.15.2",
-    "loopback-datasource-juggler": "^2.7.0",
-    "serve-favicon": "^2.0.1"
+    "loopback-datasource-juggler": "2.46.0",
+    "serve-favicon": "^2.0.1",
+    "strong-error-handler": "3.0.0"
   },
   "optionalDependencies": {
-    "loopback-explorer": "^1.1.0"
+    "loopback-component-explorer": "2.4.0"
   },
   "devDependencies": {
     "chai": "3.5.0",
     "debug": "2.2.0",
     "jshint": "^2.5.6",
+    "loopback-explorer": "https://registry.npmjs.org/loopback-explorer/-/loopback-explorer-1.8.0.tgz",
     "loopback-testing": "git+https://github.com/tobernguyen/loopback-testing.git#70b09b9488920f85f9089cb5802ea98869928ae2",
     "mocha": "2.5.3"
   }
