@@ -27,3 +27,9 @@ services:
     image: mongo
     ports:
       - "3001:27017"
+  nginx-proxy:
+    image: nginx:latest
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80" 
